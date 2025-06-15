@@ -1,5 +1,28 @@
+/* Import custom fonts */
+
+@font-face {
+    font-family: 'digital-7';
+    src: url('./clock-font/fonts/digital-7.ttf');
+}
+
 body {
     background-color: #B9CFF0;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    font-family: Monospace, sans-serif;
+    font-size: 24px;
+    font-weight: 500px;
+}
+
+#caption {
+    display: flex;
+    justify-content: center;
+    font-family: Monospace, sans-serif;
+    font-size: 18px;
+    font-weight: 500px;
 }
 
 #game-log-header {
@@ -20,7 +43,7 @@ button {
   color: #111;
   cursor: pointer;
   display: flex;
-  font-family: Inter,sans-serif;
+  font-family: Monospace,sans-serif;
   font-size: 12px;
   height: 28px;
   justify-content: center;
@@ -73,10 +96,89 @@ button:hover {
     display: flex;
     justify-content: space-between;
     flex: 1;
-    padding: 16px 24px;
+    padding: 0px 24px;
 }
 
-#title {
+/* Boxes */
+
+#human-box, #computer-box {
+    align-items: center;
+    background-color: #ffb2d0;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
     display: flex;
+    flex: 1;
+    flex-direction: column;
+    font-family: digital-7, sans-serif;
+    font-size: 16px;
+    height: 200px;
     justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+#human-box:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    z-index: -1;
+}
+
+#computer-box:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    z-index: -1;
+}
+
+.box{
+    display: flex;
+    flex: 1;
+    justify-content: stretch;
+    padding: 30px 24px;
+    gap: 16px;
+}
+
+#human-emoji {
+    font-size: 30px;
+}
+
+#computer-emoji {
+    font-size: 30px;
+}
+
+/* Score Board */
+
+.scoreboard {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scoreboard #caption, #score, #score-text{
+    display: flex;
+    font-family: digital-7, sans-serif;
 }
