@@ -19,10 +19,13 @@ function getComputerChoice(){
     randChoice = getRandomInt(3);
 
     if ( randChoice == 0 ){
+        convertComputerEmoji("🪨");
         return "rock";
     } else if ( randChoice == 1 ){
+        convertComputerEmoji("🧻");
         return "paper";
     } else {
+        convertComputerEmoji("✂️");
         return "scissors";
     }
 };
@@ -53,19 +56,23 @@ function getComputerChoice(){
 
 rockBtn.addEventListener("click", () => {
     humanChoice = "rock";
-    convertDom("You chose Rock.");
+    convertHumanEmoji("🪨");
     
 });
 paperBtn.addEventListener("click", () => {
     humanChoice = "paper";
-    convertDom("You chose Paper.");
+    convertHumanEmoji("🧻");
 });
 scissorsBtn.addEventListener("click", () => {
     humanChoice = "scissors";
-    convertDom("You chose Scissors.");
+    convertHumanEmoji("✂️");
 });
 playAgainBtn.addEventListener("click", () => {
     humanChoice = "playAgain";
+    convertHumanEmoji("🌚");
+    convertComputerEmoji("🤖");
+    convertDom("");
+    updateScore();
 });
 // step 5
 
@@ -76,29 +83,29 @@ function playRound(computerChoice){
         convertDom(`It's a tie! Both played ` + humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1) + `.`);
     } else if ( humanChoice == "rock" ) {
         if (computerChoice == "paper"){
-            convertDom("You lose! Paper beats Rock.");
+            convertDom("Lose. Paper beats Rock.");
             computerScore++;
         }
         else{
-            convertDom("You win! Rock beats Scissors.");
+            convertDom("Win. Rock beats Scissors.");
             humanScore++;
         }
     } else if ( humanChoice == "paper" ) {
         if (computerChoice == "scissors"){
-            convertDom("You lose! Scissors beats Paper.");
+            convertDom("Lose. Scissors beats Paper.");
             computerScore++;
         }
         else{
-            convertDom("You win! Paper beats Rock.");
+            convertDom("Win. Paper beats Rock.");
             humanScore++;
         }
     } else if ( humanChoice == "scissors" ) {
         if (computerChoice == "rock"){
-            convertDom("You lose! Rock beats Scissors.");
+            convertDom("Lose. Rock beats Scissors.");
             computerScore++;
         }
         else{
-            convertDom("You win! Scissors beats Paper.");
+            convertDom("Win. Scissors beats Paper.");
             humanScore++;
         } 
     } else {
@@ -110,22 +117,18 @@ function playRound(computerChoice){
 
 function playGame(){
     playRound(getComputerChoice());
-    convertDom(`Round ${i+1}: Human Score: ${humanScore}, Computer Score: ${computerScore}`);
-    convertDom("---------------------+-------------------+--------------");
+    updateScore();
     i++;
 
     if (i == 5) {
-        convertDom("Final Scores:");
-        convertDom(`Human: ${humanScore} vs Computer: ${computerScore}`);
 
         if ( humanScore > computerScore ){
-            convertDom("Congratulations! You win!");
+            convertDom("Congratulations! You win! Play again?");
         } else if ( humanScore < computerScore ){
-            convertDom("Sorry! You lose.");
+            convertDom("Sorry! You lose. Play again?");
         } else {
-            convertDom("It's a tie!");
+            convertDom("It's a Draw! Play again?");
         }
-        convertDom("---------------------+-------------------+--------------");
     }
 };
 
@@ -133,15 +136,29 @@ function resetGame() {
     humanScore = 0;
     computerScore = 0;
     i = 0;
-    document.querySelector("#game-log").innerHTML = "";
+    document.getElementById("game-log").innerHTML = "";
 };
 
-function convertDom(message) {
-    const logDiv = document.querySelector("#game-log");
-    const div = document.createElement("div");
-    div.textContent = message;
-    logDiv.appendChild(div);
+function convertHumanEmoji(emoji) {
+    let logSpan = document.getElementById("human-emoji");
+    logSpan.textContent = emoji;
 };
+
+function convertComputerEmoji(emoji) {
+    let logSpan = document.getElementById("computer-emoji");
+    logSpan.textContent = emoji;
+};
+
+function convertDom(message){
+    let logDiv = document.getElementById("score-text");
+    logDiv.textContent = message;
+};
+
+function updateScore() {
+    let score = document.getElementById("score");
+    score.textContent = `${humanScore} : ${computerScore}`;
+
+}
   
 rockBtn.addEventListener("click", playGame);
 paperBtn.addEventListener("click", playGame);
