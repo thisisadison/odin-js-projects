@@ -72,7 +72,6 @@ playAgainBtn.addEventListener("click", () => {
     convertHumanEmoji("🌚");
     convertComputerEmoji("🤖");
     convertDom("");
-    updateScore();
 });
 // step 5
 
@@ -136,7 +135,7 @@ function resetGame() {
     humanScore = 0;
     computerScore = 0;
     i = 0;
-    document.getElementById("game-log").innerHTML = "";
+    updateScore();
 };
 
 function convertHumanEmoji(emoji) {
