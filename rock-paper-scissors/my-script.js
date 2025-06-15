@@ -7,12 +7,13 @@ let humanChoice = null;
 let rockBtn = document.querySelector("#rock");
 let paperBtn = document.querySelector("#paper");
 let scissorsBtn = document.querySelector("#scissors");
+let playAgainBtn = document.querySelector("#playAgain");
 
 // step 2
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
-}
+};
 
 function getComputerChoice(){
     randChoice = getRandomInt(3);
@@ -24,7 +25,7 @@ function getComputerChoice(){
     } else {
         return "scissors";
     }
-}
+};
 
 // step 3
 
@@ -54,16 +55,18 @@ rockBtn.addEventListener("click", () => {
     humanChoice = "rock";
     convertDom("You chose Rock.");
     
-})
+});
 paperBtn.addEventListener("click", () => {
     humanChoice = "paper";
     convertDom("You chose Paper.");
-})
+});
 scissorsBtn.addEventListener("click", () => {
     humanChoice = "scissors";
     convertDom("You chose Scissors.");
-})
-
+});
+playAgainBtn.addEventListener("click", () => {
+    humanChoice = "playAgain";
+});
 // step 5
 
 function playRound(computerChoice){
@@ -97,11 +100,11 @@ function playRound(computerChoice){
         else{
             convertDom("You win! Scissors beats Paper.");
             humanScore++;
-        }
+        } 
     } else {
         convertDom("Invalid choice. Please choose rock, paper, or scissors.");
     }
-}
+};
 
 // step 6
 
@@ -122,24 +125,28 @@ function playGame(){
         } else {
             convertDom("It's a tie!");
         }
-        
-        humanScore = 0;
-        computerScore = 0;
-        i = 0;
         convertDom("---------------------+-------------------+--------------");
     }
-}
+};
+
+function resetGame() {
+    humanScore = 0;
+    computerScore = 0;
+    i = 0;
+    document.querySelector("#game-log").innerHTML = "";
+};
 
 function convertDom(message) {
     const logDiv = document.querySelector("#game-log");
     const div = document.createElement("div");
     div.textContent = message;
     logDiv.appendChild(div);
-  }
+};
   
 rockBtn.addEventListener("click", playGame);
 paperBtn.addEventListener("click", playGame);
 scissorsBtn.addEventListener("click", playGame);
+playAgainBtn.addEventListener("click", resetGame);
 
 
 
