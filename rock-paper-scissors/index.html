@@ -7,18 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h3 id="title">Rock 🪨, Paper 🧻, Scissors ✂️ Game</h3>
+    <p id="title">Rock 🪨, Paper 🧻, Scissors ✂️ Game</p>
+    <p id="caption"> Select your option here: </p>
     <div class="buttonsCtn"></index>
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
         <button id="playAgain">Play Again</button>
     </div>
-    <p id="game-log-header">--Moves Played--</p>
-    <div id="game-log"></div>
+    <div class="box">
+        <div id="human-box">
+            <p id="human-select">Player Selects:</p>
+            <span id="human-emoji">🌚</span>
+        </div>
+        <div id="computer-box">
+            <p id="human-select">Computer Selects:</p>
+            <span id="computer-emoji">🤖</span>
+        </div>
+    </div>
+    <div class="scoreboard">
+        <p id="score-text"></p>
+        <p id="caption">Human : Computer</p>
+        <p id="score">0 : 0</p>
+    </div>
     <!-- External js file -->
     <script src="my-script.js"></script>
-
 </body>
 </html>
 
