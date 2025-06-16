@@ -9,7 +9,6 @@ v2 updates
 - Learnt how to use EventListeners, QuerySelectors and getElementByIds.
 - Learnt how to use the aforementioned to perform DOM manipulation to shift user interface from console.log to webpage.
 
-
 v3 updates
 - Performed styling together with javascript functions and logic.
 
