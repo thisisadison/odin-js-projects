@@ -1,0 +1,81 @@
+body {
+    background-color: #B9CFF0;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    font-family: Monospace, sans-serif;
+    font-size: 22px;
+    font-weight: 500px;
+}
+
+#grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    height: 60vh;    
+    flex: 1;
+}
+
+.gridRow {
+    display: flex;
+}
+
+.gridCell {
+    border: 1px solid black;
+    min-width: 15px;
+    min-height: 15px;
+    display: flex;
+    flex-direction: column;
+} 
+
+/* Slider */
+
+#demo {
+    color: #4c93fe;
+    font-size: 20px;
+    font-family: Monospace, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.slider-ctn{
+    max-width: 100%;
+    display: flex;
+    justify-content: center; /* Center the container itself */
+}
+  
+/* The slider itself */
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 20;
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    -webkit-box-shadow: 2px 8px 13px -3px #7db1fe;
+    -moz-box-shadow: 2px 8px 13px -3px #7db1fe;
+}
+  
+  /* Mouse-over effects */
+.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+}
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 25px; /* Set a specific slider handle width */
+    height: 25px; /* Slider handle height */
+    border-radius: 7px;
+    background: #7db1fe; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
