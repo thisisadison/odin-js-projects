@@ -6,22 +6,25 @@ let defaultSize = 16;
 
 function buildGrid(dim) {
     grid.innerHTML = "";
-    makeRows(dim);
-    makeColumns(dim);
+
+    let cellWidth = 100 / dim // in % of container
+    makeRows(dim, cellWidth);
+    makeColumns(dim, cellWidth);
 };
 
-function makeRows(noRows) {
+function makeRows(noRows, cellWidth) {
     for (let i=0; i < noRows; i++){
         let row = document.createElement("div");
         grid.appendChild(row).className = "gridRow";
     }
 };
 
-function makeColumns (noColumns) {
+function makeColumns(noColumns, cellWidth) {
     for (let i=0; i<rows.length; i++) {
         for (let j=0; j < noColumns; j++){
             let newCell = document.createElement("div");
             newCell.className = "gridCell";
+            newCell.style.width = `${cellWidth}%`;
             rows[i].appendChild(newCell);
         }
     }
@@ -75,17 +78,17 @@ function makeColumns (noColumns) {
 // slider
 
 var output = document.getElementById("demo");
+var sliderObj = document.getElementById("myRange");
 
-var sliderVal = document.getElementById("myRange").oninput = function() {
+var getSliderVal = sliderObj.addEventListener("input", function() {
     var value = (this.value - this.min) / (this.max - this.min) * 100;
     this.style.background = 'linear-gradient(to right,rgb(173, 204, 250) 0%,rgb(142, 186, 248) ' + value + '%, #ddd ' + value + '%, #ddd 100%)';
     output.innerHTML = `${this.value}x${this.value}`;
+});
 
-}
-
-var sliderValGrid = document.getElementById("myRange").oninput = function() {
+var setSliderGrid = sliderObj.addEventListener("input", function() {
     var value = (this.value - this.min) / (this.max - this.min) * 100;
-    buildGrid(this.value);
-}
+    buildGrid(this.value); 
+});
 
 buildGrid(defaultSize);
