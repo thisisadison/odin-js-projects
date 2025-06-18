@@ -34,9 +34,10 @@ body {
 }
 
 .gridCell {
-    border: 0.05px solid black;
+    /* border: 0.05px solid black; */
     display: flex;
     flex-direction: column;
+    transition: opacity 0.5s ease;
 } 
 
 /* Slider */
@@ -86,7 +87,17 @@ body {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     border-radius: 7px;
-    background: #7db1fe; /* Green background */
+    background: #7db1fe; 
     cursor: pointer; /* Cursor on hover */
 }
+
+/* .gridCell {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gridCell.show {
+    opacity: 1;
+} */
+
 
