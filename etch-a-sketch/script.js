@@ -10,6 +10,7 @@ function buildGrid(dim) {
     let cellWidth = 100 / dim // in % of container
     makeRows(dim, cellWidth);
     makeColumns(dim, cellWidth);
+    hoverColor(); // attach event listener after every instance of rebuilding
 };
 
 function makeRows(noRows, cellWidth) {
@@ -29,6 +30,58 @@ function makeColumns(noColumns, cellWidth) {
         }
     }
 };
+
+// slider
+
+var output = document.getElementById("demo");
+var sliderObj = document.getElementById("myRange");
+
+var getSliderVal = sliderObj.addEventListener("input", function() {
+    var value = (this.value - this.min) / (this.max - this.min) * 100;
+    this.style.background = 'linear-gradient(to right,rgb(173, 204, 250) 0%,rgb(142, 186, 248) ' + value + '%, #ddd ' + value + '%, #ddd 100%)';
+    output.innerHTML = `${this.value}x${this.value}`;
+});
+
+var setSliderGrid = sliderObj.addEventListener("input", function() {
+    var value = (this.value - this.min) / (this.max - this.min) * 100;
+    buildGrid(this.value); 
+});
+
+// Hover event listener, Color Change, Opacity Gain
+
+function hoverColor () {
+    for (let cell of cells) {
+        cell.addEventListener('mouseover', () => {
+            if (cell.style.backgroundColor == ""){
+                cell.style.opacity = 0.1;
+                randomColor(cell);
+            } else {
+                let currentOpacity = parseFloat(cell.style.opacity);
+                if (currentOpacity != 1) {
+                    cell.style.opacity = currentOpacity + 0.1;
+                }
+            }
+        });
+    }
+}
+
+// Random color generator using rgb
+
+function randomColor(cell) {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    cell.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+}
+
+// Random color generator using hex
+
+// var randomColor = "#" + Math.floor(Math.random()*16777215).toString(16);
+// cell.style.backgroundColor = randomColor;
+
+// Initialise grid with default dimensions
+
+buildGrid(defaultSize);
 
 // Too much overhead causing race condition. Less overhead by deleting grid and rebuilding.
 
@@ -74,21 +127,3 @@ function makeColumns(noColumns, cellWidth) {
 //     ammendRows(dim);
 //     ammendColumns(dim);
 // }
-
-// slider
-
-var output = document.getElementById("demo");
-var sliderObj = document.getElementById("myRange");
-
-var getSliderVal = sliderObj.addEventListener("input", function() {
-    var value = (this.value - this.min) / (this.max - this.min) * 100;
-    this.style.background = 'linear-gradient(to right,rgb(173, 204, 250) 0%,rgb(142, 186, 248) ' + value + '%, #ddd ' + value + '%, #ddd 100%)';
-    output.innerHTML = `${this.value}x${this.value}`;
-});
-
-var setSliderGrid = sliderObj.addEventListener("input", function() {
-    var value = (this.value - this.min) / (this.max - this.min) * 100;
-    buildGrid(this.value); 
-});
-
-buildGrid(defaultSize);
