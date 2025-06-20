@@ -15,3 +15,5 @@ v3 updates
 v4 updates
 - Added hover over effects such as color change, followed by random color generators.
 - Added opacity gain functions to increment grid color opacity overtime.
+
+Live website available on : https://thisisadison.github.io/odin-js-projects/etch-a-sketch/
