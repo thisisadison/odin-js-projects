@@ -41,14 +41,24 @@ body {
     flex-direction: column;
 }
 
-#display {
+.display {
     background-color: #1a1a1a;
     display: flex;
+    flex: 1;
+    justify-content: right;
+    align-items: center;
     margin: 0 auto;
     margin-top: 10px;
     width: 95%;
-    height: 15%;
     border-radius: 8px;
+}
+
+/* Display */
+
+#output {
+    font-size: 45px;
+    color: white;
+    font-family: 'digital-7', sans-serif;
 }
 
 /* Buttons */
@@ -60,7 +70,8 @@ body {
     margin: 10px auto;
     width: 95%;
     height: 85%;
-    border: 1px solid;
+    border-radius: 8px;
+    border: 2px solid;
 }
 
 .row1, .row2, .row3, .row4, .row5{
@@ -70,7 +81,7 @@ body {
     gap: 10px;
 }
 
-.button {
+button {
     display: flex;
     flex: 1;
     font-family: 'orbitron', sans-serif;
@@ -94,7 +105,7 @@ body {
     transition: box-shadow 0.1s ease, transform 0.1s ease;
 }
 
-.button:active {
+button:active {
   box-shadow: -0.5px -0.5px 0px 0px, inset 2px 2px 4px rgba(0,0,0,0.2);
   border-bottom: 0.5px solid;
   border-right: 0.5px solid;
@@ -103,15 +114,19 @@ body {
 }
 
 @media (min-width: 768px) {
-  .button {
+  button {
     padding: 0.25em 0.75em;
   }
 }
 
-#acBtn.button {
+#acBtn {
     background-color: #ff2c2c;
 }
 
-#delBtn.button {
+#delBtn {
     background-color: hsl(28, 100%, 50%);
+}
+
+#equalBtn {
+    background-color: #4eda08;
 }
