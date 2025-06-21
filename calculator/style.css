@@ -1,0 +1,117 @@
+@font-face {
+    font-family: 'digital-7';
+    src: url('./clock-font/fonts/digital-7.ttf');
+}
+
+@font-face {
+    font-family: 'orbitron';
+    src: url('./Orbitron/static/Orbitron-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'orbitron'; /* Same font family name */
+    src: url('./Orbitron/static/Orbitron-SemiBold.ttf');
+    font-weight: 600; /* This file is for the SemiBold weight */
+    font-style: normal;
+    font-display: swap;
+  }
+
+body {
+    background-color: #C1E1C1;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+    font-family: Monospace, sans-serif;
+    font-size: 24px;
+    font-weight: 500px;
+}
+
+#calculator {
+    display: flex;
+    margin: 10px auto 0;  /* margin-top: 10px; margin left right: auto; margin-bottom: 0px*/
+    background-color: #c1f6cf;
+    border-radius: 8px;
+    width: 450px;
+    height: 650px;
+    flex-direction: column;
+}
+
+#display {
+    background-color: #1a1a1a;
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 95%;
+    height: 15%;
+    border-radius: 8px;
+}
+
+/* Buttons */
+
+.buttonContainer {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 95%;
+    height: 85%;
+    border: 1px solid;
+}
+
+.row1, .row2, .row3, .row4, .row5{
+    display: flex;
+    flex: 1;
+    margin: 10px;
+    gap: 10px;
+}
+
+.button {
+    display: flex;
+    flex: 1;
+    font-family: 'orbitron', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #000;
+    cursor: pointer;
+    border: 2px solid;
+    border-top: 0.5px solid;
+    border-left: 0.5px solid;
+    border-radius: 6px;
+    padding: 0.25em 0.5em;
+    box-shadow: 0.5px 0.5px 0px 0px;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: box-shadow 0.1s ease, transform 0.1s ease;
+}
+
+.button:active {
+  box-shadow: -0.5px -0.5px 0px 0px, inset 2px 2px 4px rgba(0,0,0,0.2);
+  border-bottom: 0.5px solid;
+  border-right: 0.5px solid;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 0.25em 0.75em;
+  }
+}
+
+#acBtn.button {
+    background-color: #ff2c2c;
+}
+
+#delBtn.button {
+    background-color: hsl(28, 100%, 50%);
+}
