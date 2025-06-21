@@ -57,7 +57,6 @@ function getComputerChoice(){
 rockBtn.addEventListener("click", () => {
     humanChoice = "rock";
     convertHumanEmoji("🪨");
-    
 });
 paperBtn.addEventListener("click", () => {
     humanChoice = "paper";
@@ -156,7 +155,6 @@ function convertDom(message){
 function updateScore() {
     let score = document.getElementById("score");
     score.textContent = `${humanScore} : ${computerScore}`;
-
 }
   
 rockBtn.addEventListener("click", playGame);
