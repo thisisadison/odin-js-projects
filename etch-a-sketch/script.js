@@ -38,7 +38,9 @@ var sliderObj = document.getElementById("myRange");
 
 var getSliderVal = sliderObj.addEventListener("input", function() {
     var value = (this.value - this.min) / (this.max - this.min) * 100;
-    this.style.background = 'linear-gradient(to right,rgb(173, 204, 250) 0%,rgb(142, 186, 248) ' + value + '%, #ddd ' + value + '%, #ddd 100%)';
+    this.style.background = 
+  'linear-gradient(to right, rgb(180, 238, 180) 0%, rgb(144, 238, 144) ' 
+  + value + '%, #ddd ' + value + '%, #ddd 100%)';
     output.innerHTML = `${this.value}x${this.value}`;
 });
 

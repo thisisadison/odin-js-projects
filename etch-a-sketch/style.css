@@ -1,5 +1,5 @@
 body {
-    background-color: #B9CFF0;
+    background-color: #C1E1C1;
 }
 
 #title {
@@ -43,7 +43,7 @@ body {
 /* Slider */
 
 #demo {
-    color: #4c93fe;
+    color: #3f933f;
     font-size: 20px;
     font-family: Monospace, sans-serif;
     display: flex;
@@ -66,13 +66,13 @@ body {
     appearance: none;
     width: 300px;
     height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
+    background: #f0f0f0; /* Whitish background */
     outline: none; /* Remove outline */
     opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
     -webkit-transition: .2s; /* 0.2 seconds transition on hover */
     transition: opacity .2s;
-    -webkit-box-shadow: 2px 8px 13px -3px #7db1fe;
-    -moz-box-shadow: 2px 8px 13px -3px #7db1fe;
+    -webkit-box-shadow: 2px 8px 13px -3px #3f933f;
+    -moz-box-shadow: 2px 8px 13px -3px #3f933f;
 }
   
   /* Mouse-over effects */
@@ -87,7 +87,7 @@ body {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
     border-radius: 7px;
-    background: #7db1fe; 
+    background: #3f933f; 
     cursor: pointer; /* Cursor on hover */
 }
 
