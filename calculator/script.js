@@ -113,7 +113,7 @@ buttonContainer.addEventListener('click', (event) => {
             if (display.textContent === '0' && value !== '.') {
                 updateDisplay(value);
             } else {
-                if (display.textContent.length > 20) {
+                if (display.textContent.length > 19) {
                     let saveContent = display.textContent;
                     updateDisplay("MAX VALUE EXCEEDED");
                     setTimeout(function() {
